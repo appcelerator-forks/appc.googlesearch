@@ -1,0 +1,8 @@
+{
+    "type": "connector",
+    "group": "arrow",
+    "dependencies": {},
+    "owners": [
+        "mvasilev@axway.com"
+    ]
+}
