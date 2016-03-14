@@ -200,7 +200,7 @@ describe('Connector', function() {
 
         before(function(next) {
             //Set server Authentication to 'basic'
-            server.APIKeyAuthType = 'basic';
+            server.config.APIKeyAuthType = 'basic';
             //Configure authemtication
             auth = {
                 user: server.config.apikey,
@@ -222,7 +222,7 @@ describe('Connector', function() {
             var api = server.getAPI('Query');
             var url = 'http://localhost:' + server.port + api.path + query_params;
             //Auth type should be set to basic, in order for future requests to succeed
-            should(server.APIKeyAuthType).containEql('basic');
+            should(server.config.APIKeyAuthType).containEql('basic');
             //Make an authenticated request to the API
             request({
                 method: 'GET',
