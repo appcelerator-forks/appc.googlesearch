@@ -28,7 +28,7 @@ export class Client {
             "json": true
         };
     }
-    
+
     /**
      * Sets module's configuration
      */
@@ -38,7 +38,7 @@ export class Client {
         this._connector = parent;
         parent.logger.trace('Connected to google custom search');
     }
-    
+
     /**
      * Unsets module's configurations
      */
@@ -48,18 +48,22 @@ export class Client {
         this._connector = parent;
         parent.logger.trace('Disconnected from google custom search');
     }
-    
-    
+
+
     /**
      * Configures the module
      */
     protected configure(config): Boolean {
+        if (!config || !config.key)
+            throw new Error('Configuration is not set.');
         this.key = config.key;
+        this.config = config;
         if (config.cx)
             this.cx = config.cx
         else if (config.cref)
             this.cref = config.cref;
-
+        if (!this.cx && !this.cref)
+            throw new Error('You must provide either cx or cref parameter in your configuration!');
         this.url = 'https://www.googleapis.com/customsearch/v1?key=' + this.key;
         if (this.cx)
             this.url += '&cx=' + this.cx;
@@ -89,12 +93,13 @@ export class Client {
 
     /**
      * Query Google APIs
+     * @param funciton callback, a callback function. error, response, body are passed to it 
      */
     public query(callback) {
         this.options.url = this.url;
         return request(this.options, callback);
-    }    
-    
+    }
+
     /**
      * Return a collection of models
      */
@@ -110,8 +115,8 @@ export class Client {
         }
         return tmp_results;
     }
-    
-    
+
+
 
     /**
      * Creates query string from an object 
@@ -120,7 +125,7 @@ export class Client {
         var params: WhereQueryParamers = this._params;
         var i = 0;
         for (var key in params) {
-            if (i == 0) {
+            if (i === 0) {
                 this._query = '&' + key + '=' + params[key];
             } else {
                 this._query += '&' + key + '=' + params[key];
@@ -132,7 +137,7 @@ export class Client {
     }
 
 
-    
+
     /**
      * Parse provided parameters
      * 
@@ -171,7 +176,7 @@ export class Client {
         if (v.searchType) v.where.searchType = v.searchType;
         if (v.siteSearch) v.where.siteSearch = v.siteSearch;
         if (v.siteSearchFilter) v.where.siteSearchFilter = v.siteSearchFilter;
-        
+
         //Set self::_params
         this._params = v.where;
         return true;

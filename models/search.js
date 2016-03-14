@@ -1,5 +1,24 @@
 var Arrow = require('arrow');
-var search = Arrow.createModel('customsearch', {
+
+var Collection = Arrow.Collection,
+    ORMError = Arrow.ORMError;
+
+var server = Arrow.getGlobal();
+var config = server.config;
+var apiPrefix = config.apiPrefix
+var apiPath = apiPrefix + '/customsearch/query'
+var connector = Arrow.getConnector('appc.googlesearch');
+var Model = Arrow.getModel('customsearch');
+var client = connector.client;
+var meta_context = {};
+var _response = {};
+var _error = {};
+
+/**
+ * Note that autogen is set to false. This service provides only one Endpoint
+ * It uses this ("customsearch") Model and is registered in ../lib/index.js
+ */
+var customsearch = Arrow.createModel('customsearch', {
     fields: {
         kind: { type: String, required: false },
         title: { type: String, required: true },
@@ -17,4 +36,4 @@ var search = Arrow.createModel('customsearch', {
     autogen: false
 });
 
-module.exports = search;
+module.exports = customsearch;
