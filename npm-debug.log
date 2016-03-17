@@ -1,0 +1,86 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@2.11.3
+3 info using node@v0.12.7
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec { raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'c:\\appc.googlesearch',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\mvasilev\AppData\Roaming\npm-cache\appc.googlesearch\1.0.0\package.tgz not in flight; packing
+9 verbose tar pack [ 'C:\\Users\\mvasilev\\AppData\\Roaming\\npm-cache\\appc.googlesearch\\1.0.0\\package.tgz',
+9 verbose tar pack   'c:\\appc.googlesearch' ]
+10 verbose tarball C:\Users\mvasilev\AppData\Roaming\npm-cache\appc.googlesearch\1.0.0\package.tgz
+11 verbose folder c:\appc.googlesearch
+12 info prepublish appc.googlesearch@1.0.0
+13 verbose addLocalTarball adding from inside cache C:\Users\mvasilev\AppData\Roaming\npm-cache\appc.googlesearch\1.0.0\package.tgz
+14 silly cache afterAdd appc.googlesearch@1.0.0
+15 verbose afterAdd C:\Users\mvasilev\AppData\Roaming\npm-cache\appc.googlesearch\1.0.0\package\package.json not in flight; writing
+16 verbose afterAdd C:\Users\mvasilev\AppData\Roaming\npm-cache\appc.googlesearch\1.0.0\package\package.json written
+17 silly publish { name: 'appc.googlesearch',
+17 silly publish   description: 'An Arrow connector that connects to google custom search REST API. The Connector provides a single API endpoint which you can query.',
+17 silly publish   version: '1.0.0',
+17 silly publish   author: { name: 'Marin Vasilev' },
+17 silly publish   license: '',
+17 silly publish   framework: 'none',
+17 silly publish   keywords: [ 'appcelerator', 'arrow' ],
+17 silly publish   repository:
+17 silly publish    { type: 'git',
+17 silly publish      url: 'git+https://github.com/marinvvasilev/appc.googlesearch.git' },
+17 silly publish   private: true,
+17 silly publish   dependencies:
+17 silly publish    { async: '^1.5.0',
+17 silly publish      lodash: '^3.10.1',
+17 silly publish      pkginfo: '^0.3.1',
+17 silly publish      semver: '^5.0.3' },
+17 silly publish   devDependencies:
+17 silly publish    { arrow: '^*',
+17 silly publish      grunt: '^0.4.5',
+17 silly publish      'grunt-appc-js': '^1.0.19',
+17 silly publish      'grunt-contrib-clean': '^0.7.0',
+17 silly publish      'grunt-contrib-jshint': '^0.10.0',
+17 silly publish      'grunt-mocha-istanbul': '^3.0.1',
+17 silly publish      istanbul: '^0.4.1',
+17 silly publish      mocha: '^2.3.4',
+17 silly publish      promise: '^7.1.1',
+17 silly publish      request: '^2.60.0',
+17 silly publish      should: '^8.0.2',
+17 silly publish      typescript: '^1.7.3' },
+17 silly publish   scripts: { start: 'appc run', test: 'grunt' },
+17 silly publish   readme: '# Google Custom Search Connector for Appcelerator Arrow\r\nAn Arrow connector that connects to google custom search REST API. The Connector provides a single API endpoint which you can query.\r\n\r\n## 1. Installation\r\nYou can use \r\n```sh \r\nnpm install appc.googlesearch\r\n```\r\nor add \r\n```sh \r\n"appc.googlesearch" : "1.0.0"\r\n``` \r\nto you **packacge.json** file.\r\n\r\n## 2. Configuration\r\nRegister the connector in your **appc.json** file : \r\n```sh\r\n"dependencies": {\r\n    ...\r\n    "connector/appc.googlesearch": "^0.0.5"\r\n  },\r\n  ...\r\n```\r\nSet the configuration object in your ``conf/default.js`` file :\r\n\r\n```sh\r\n    connectors: {\r\n        \'appc.googlesearch\': {\r\n            key: \'<googleCustomSearchKey>\',\r\n            //One of the following two should be set\r\n            cx: \'<googleCustomSeachCX>\', //provide this\r\n            cref: \'<googleCustomSearchCREF>\' //or this\r\n        }\r\n    }\r\n```\r\n## 3. Usage\r\nTake a look at all available options and query parameters, in the API documentation section of your arrow administration.\r\nOptions are available under the group **Google Search**.\r\n\r\n## 4. Custom API result object\r\nThe connector returns a result object that slightly differs from the default API endpoint output. The connector adds ``"context"`` Object, as a first level object in the returned result:\r\n```sh\r\n{\r\n    \'success\': true,\r\n    \'request-id\': \'<requId>\',\r\n    \'key\': \'customsearches\',\r\n    \'customsearches\': [],\r\n    \'context\': {}\r\n};\r\n```\r\nWhere "context" has the following structure:\r\n\r\n```sh\r\n {\r\n     title : String,\r\n     facets : Array,\r\n     totalResults : Number\r\n     restUrl : String\r\n}\r\n```\r\n\r\nWhere \r\n - **title** - is the Custom Search title (set by Google)\r\n - **facets** - an Array holding all the facets, registered for this search\r\n - **totalResults** - the number of items in this set\r\n - **restUrl** - the actual REST url (to google search)\r\n\r\n## 4. Testing\r\nTo test the connector, just run\r\n```sh\r\nnpm test\r\n```\r\n',
+17 silly publish   readmeFilename: 'README.md',
+17 silly publish   gitHead: '65ead93161217c524cea0e388f2ad2803fd57a40',
+17 silly publish   bugs: { url: 'https://github.com/marinvvasilev/appc.googlesearch/issues' },
+17 silly publish   homepage: 'https://github.com/marinvvasilev/appc.googlesearch#readme',
+17 silly publish   _id: 'appc.googlesearch@1.0.0',
+17 silly publish   _shasum: '9a9effdcdf7ce67eba3b77358c7489f38b93f026',
+17 silly publish   _from: '.' }
+18 verbose getPublishConfig undefined
+19 verbose stack Error: This package has been marked as private
+19 verbose stack Remove the 'private' field from the package.json to publish it.
+19 verbose stack     at publish_ (C:\Program Files (x86)\nodejs\node_modules\npm\lib\publish.js:98:5)
+19 verbose stack     at Array.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\slide\lib\bind-actor.js:15:8)
+19 verbose stack     at LOOP (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\slide\lib\chain.js:15:14)
+19 verbose stack     at LOOP (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\slide\lib\chain.js:14:28)
+19 verbose stack     at chain (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\slide\lib\chain.js:20:5)
+19 verbose stack     at C:\Program Files (x86)\nodejs\node_modules\npm\lib\publish.js:73:5
+19 verbose stack     at RES (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\inflight\inflight.js:23:14)
+19 verbose stack     at f (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\once\once.js:17:25)
+19 verbose stack     at C:\Program Files (x86)\nodejs\node_modules\npm\lib\cache.js:350:14
+19 verbose stack     at C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\write-file-atomic\index.js:29:15
+20 verbose cwd c:\appc.googlesearch
+21 error Windows_NT 6.1.7601
+22 error argv "C:\\Program Files (x86)\\nodejs\\\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+23 error node v0.12.7
+24 error npm  v2.11.3
+25 error This package has been marked as private
+25 error Remove the 'private' field from the package.json to publish it.
+26 error If you need help, you may report this error at:
+26 error     <https://github.com/npm/npm/issues>
+27 verbose exit [ 1, true ]
