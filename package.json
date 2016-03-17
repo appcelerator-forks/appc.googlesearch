@@ -9,7 +9,10 @@
     "appcelerator",
     "arrow"
   ],
-  "repository": {},
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/marinvvasilev/appc.googlesearch.git"
+  },
   "private": true,
   "dependencies": {
     "async": "^1.5.0",
