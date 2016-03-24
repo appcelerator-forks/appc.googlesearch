@@ -84,8 +84,8 @@ module.exports = {
     // your connector configuration goes here
     connectors: {
         'appc.googlesearch': {
-            key: 'AIzaSyCMGfdDaSfjqv5zYoS0mTJnOT3e9MURWkU',
-            cx: '000921716086157048707:jywf5jqy7ps',
+            key: '<key>',
+            cx: '<cx>',
             cref: ''
         }
     }
