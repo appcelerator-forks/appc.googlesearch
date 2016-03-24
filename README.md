@@ -70,3 +70,4 @@ To test the connector, just run
 ```sh
 npm test
 ```
+Be sure to set <key> and <cx> parameters in /conf/default.js before runing tests
