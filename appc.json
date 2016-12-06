@@ -5,5 +5,8 @@
     "dependencies": {},
     "owners": [
         "mvasilev@axway.com"
-    ]
+    ],
+	"assets": {
+		"small_logo": "docs/registry-googlesearch.png"
+	}
 }
