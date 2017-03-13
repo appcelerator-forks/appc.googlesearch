@@ -4,12 +4,12 @@ var Collection = Arrow.Collection,
     ORMError = Arrow.ORMError;
 
 var server = Arrow.getGlobal();
-var config = server.config;
-var apiPrefix = config.apiPrefix
+var config = (typeof server !== "undefined")? server.config : {};
+var apiPrefix = config.apiPrefix || '/api';
 var apiPath = apiPrefix + '/customsearch/query'
 var connector = Arrow.getConnector('appc.googlesearch');
 var Model = Arrow.getModel('customsearch');
-var client = connector.client;
+var client = connector.client || {};
 var meta_context = {};
 var _response = {};
 var _error = {};
