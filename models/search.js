@@ -4,7 +4,7 @@ var Arrow = require('arrow');
  * Note that autogen is set to false. This service provides only one Endpoint
  * It uses this ("customsearch") Model and is registered in ../lib/index.js
  */
-var customsearch = Arrow.createModel('customsearch', {
+var customsearch = Arrow.Model.extend('customsearch', {
     fields: {
         kind: { type: String, required: false },
         title: { type: String, required: true },
